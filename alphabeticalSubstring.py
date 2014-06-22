@@ -13,7 +13,7 @@ Longest substring in alphabetical order is: abc
 
 """
 
-s = 'azcbobobegghakl'
+s = 'nwzsixvivwvklbsyz'
 
 # setup substring and length count
 substring = ""
@@ -35,5 +35,8 @@ for substring_start in range(len(s) - 1):
                 break
         else:
             temp_sub += s[substring_end]
+            if current_length < len(temp_sub):
+                current_length = len(temp_sub)
+                substring = temp_sub
 
 print "Longest substring in alphabetical order is: " + substring
