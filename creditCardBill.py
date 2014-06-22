@@ -42,9 +42,6 @@ below; we suggest you develop your code on your own machine, and make sure your 
 before you paste it into the box below.
 
 """
-# decimal class needed for the two decimal digits rep
-import decimal
-
 
 def monthly_credit_balance(month, mon_balance, annual_interestrate, monthly_paymentrate):
     # balance - the outstanding balance on the credit card
@@ -61,7 +58,7 @@ def monthly_credit_balance(month, mon_balance, annual_interestrate, monthly_paym
     # Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
     updated_balance_each_month = monthly_unpaid_balance + monthly_unpaid_balance * monthly_interest_rate
 
-    return month, minimum_monthly_payment, updated_balance_each_month
+    return month, round(minimum_monthly_payment, 2), round(updated_balance_each_month, 2)
 
 
 def yearly_credit_history(remain_balance, annual_interestrate, monthly_paymentrate):
@@ -77,8 +74,8 @@ def yearly_credit_history(remain_balance, annual_interestrate, monthly_paymentra
 
         total_paid += minimum_monthly_payment
 
-    print "Total paid: " + str(total_paid)
-    print "Remaining balance: " + str(balance)
+    print "Total paid: " + str(round(total_paid, 2))
+    print "Remaining balance: " + str(round(remain_balance, 2))
 
 
 # Test Case 1:
