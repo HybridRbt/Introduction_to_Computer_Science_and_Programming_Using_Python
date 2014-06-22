@@ -46,17 +46,17 @@ before you paste it into the box below.
 import decimal
 
 
-def monthly_credit_balance(month, balance, annualInterestRate, monthlyPaymentRate):
+def monthly_credit_balance(month, mon_balance, annual_interestrate, monthly_paymentrate):
     # balance - the outstanding balance on the credit card
 
     # annualInterestRate - annual interest rate as a decimal
-    monthly_interest_rate = annualInterestRate / 12
+    monthly_interest_rate = annual_interestrate / 12
 
     # monthlyPaymentRate - minimum monthly payment rate as a decimal
-    minimum_monthly_payment = monthlyPaymentRate * balance
+    minimum_monthly_payment = monthly_paymentrate * mon_balance
 
     # Monthly unpaid balance = (Previous balance) - (Minimum monthly payment)
-    monthly_unpaid_balance = balance - minimum_monthly_payment
+    monthly_unpaid_balance = mon_balance - minimum_monthly_payment
 
     # Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
     updated_balance_each_month = monthly_unpaid_balance + monthly_unpaid_balance * monthly_interest_rate
@@ -64,15 +64,16 @@ def monthly_credit_balance(month, balance, annualInterestRate, monthlyPaymentRat
     return month, minimum_monthly_payment, updated_balance_each_month
 
 
-def yearly_credit_history(balance, annualInterestRate, monthlyPaymentRate):
+def yearly_credit_history(remain_balance, annual_interestrate, monthly_paymentrate):
     total_paid = 0
 
     for each_month in range(1, 13):
-        month, minimum_monthly_payment, balance = monthly_credit_balance(each_month, balance, annualInterestRate,
-                                                                         monthlyPaymentRate)
+        month, minimum_monthly_payment, remain_balance = monthly_credit_balance(each_month, remain_balance,
+                                                                                annual_interestrate,
+                                                                                monthly_paymentrate)
         print "Month: " + str(month)
         print "Minimum monthly payment: " + str(minimum_monthly_payment)
-        print "Remaining balance: " + str(balance)
+        print "Remaining balance: " + str(remain_balance)
 
         total_paid += minimum_monthly_payment
 
