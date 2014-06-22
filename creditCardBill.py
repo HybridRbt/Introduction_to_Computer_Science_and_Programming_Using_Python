@@ -43,6 +43,7 @@ before you paste it into the box below.
 
 """
 
+
 def monthly_credit_balance(month, mon_balance, annual_interestrate, monthly_paymentrate):
     # balance - the outstanding balance on the credit card
 
@@ -58,7 +59,7 @@ def monthly_credit_balance(month, mon_balance, annual_interestrate, monthly_paym
     # Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
     updated_balance_each_month = monthly_unpaid_balance + monthly_unpaid_balance * monthly_interest_rate
 
-    return month, round(minimum_monthly_payment, 2), round(updated_balance_each_month, 2)
+    return month, minimum_monthly_payment, updated_balance_each_month
 
 
 def yearly_credit_history(remain_balance, annual_interestrate, monthly_paymentrate):
@@ -69,8 +70,8 @@ def yearly_credit_history(remain_balance, annual_interestrate, monthly_paymentra
                                                                                 annual_interestrate,
                                                                                 monthly_paymentrate)
         print "Month: " + str(month)
-        print "Minimum monthly payment: " + str(minimum_monthly_payment)
-        print "Remaining balance: " + str(remain_balance)
+        print "Minimum monthly payment: " + str(round(minimum_monthly_payment, 2))
+        print "Remaining balance: " + str(round(remain_balance, 2))
 
         total_paid += minimum_monthly_payment
 
@@ -79,7 +80,14 @@ def yearly_credit_history(remain_balance, annual_interestrate, monthly_paymentra
 
 
 # Test Case 1:
-balance = 4213
+# balance = 4213
+# annualInterestRate = 0.2
+# monthlyPaymentRate = 0.04
+#
+# yearly_credit_history(balance, annualInterestRate, monthlyPaymentRate)
+
+# Test Case 2:
+balance = 4842
 annualInterestRate = 0.2
 monthlyPaymentRate = 0.04
 
