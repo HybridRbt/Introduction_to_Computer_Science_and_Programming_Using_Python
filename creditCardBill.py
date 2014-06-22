@@ -124,32 +124,48 @@ Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x
 """
 
 
-def monthly_balance(remain_balance, annual_interest_rate, minimum_monthly_payment):
-    monthly_rate = annual_interest_rate / 12
+def monthly_balance(remain_balance, monthly_interest_rate, minimum_monthly_payment):
     monthly_unpaid_balance = remain_balance - minimum_monthly_payment
-    updated_monthly_balance = monthly_unpaid_balance + monthly_rate * monthly_unpaid_balance
+    updated_monthly_balance = monthly_unpaid_balance + monthly_interest_rate * monthly_unpaid_balance
 
     return updated_monthly_balance
 
 
 def yearly_balance(initial_balance, annual_interest_rate, minimum_monthly_payment):
     remain_balance = initial_balance
+    monthly_rate = annual_interest_rate / 12
     for each_month in range(1, 13):
-        remain_balance = monthly_balance(remain_balance, annual_interest_rate, minimum_monthly_payment)
+        remain_balance = monthly_balance(remain_balance, monthly_rate, minimum_monthly_payment)
 
     return remain_balance
 
 
-def find_lowest_payment(initial_balance):
+def find_lowest_payment(initial_balance, annual_interest_rate):
     # define precision
     eps = 0.001
 
-    remain_balance = initial_balance
     monthly_lowest_payment = 0
     # when total paid is less than balance
-    while remain_balance > eps:
+    while monthly_lowest_payment < initial_balance:
+        remain_balance = initial_balance
         monthly_lowest_payment += 10
-        remain_balance = yearly_balance(remain_balance)
+        remain_balance = yearly_balance(remain_balance, annual_interest_rate, monthly_lowest_payment)
+        if remain_balance < eps:
+            break
 
     return monthly_lowest_payment
 
+
+# Test Case 1:
+# balance = 3329
+# annualInterestRate = 0.2
+
+# Test Case 2:
+# balance = 4773
+# annualInterestRate = 0.2
+
+# # Test Case 3:
+# balance = 3926
+# annualInterestRate = 0.2
+
+print find_lowest_payment(balance, annualInterestRate)
