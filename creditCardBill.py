@@ -168,4 +168,4 @@ def find_lowest_payment(initial_balance, annual_interest_rate):
 # balance = 3926
 # annualInterestRate = 0.2
 
-print find_lowest_payment(balance, annualInterestRate)
+print "Lowest Payment: " + str(find_lowest_payment(balance, annualInterestRate))
