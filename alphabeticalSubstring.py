@@ -13,7 +13,7 @@ Longest substring in alphabetical order is: abc
 
 """
 
-s = 'nwzsixvivwvklbsyz'
+s = 'jbctikjsbils'
 
 # setup substring and length count
 substring = ""
