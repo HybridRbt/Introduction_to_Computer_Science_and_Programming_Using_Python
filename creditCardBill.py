@@ -132,9 +132,24 @@ def monthly_balance(remain_balance, annual_interest_rate, minimum_monthly_paymen
     return updated_monthly_balance
 
 
+def yearly_balance(initial_balance, annual_interest_rate, minimum_monthly_payment):
+    remain_balance = initial_balance
+    for each_month in range(1, 13):
+        remain_balance = monthly_balance(remain_balance, annual_interest_rate, minimum_monthly_payment)
+
+    return remain_balance
+
+
 def find_lowest_payment(initial_balance):
-    total_paid = 0
-    #
+    # define precision
     eps = 0.001
 
-    while (total_paid)
+    remain_balance = initial_balance
+    monthly_lowest_payment = 0
+    # when total paid is less than balance
+    while remain_balance > eps:
+        monthly_lowest_payment += 10
+        remain_balance = yearly_balance(remain_balance)
+
+    return monthly_lowest_payment
+
