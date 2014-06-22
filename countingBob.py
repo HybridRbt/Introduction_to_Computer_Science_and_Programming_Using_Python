@@ -1,6 +1,6 @@
 __author__ = 'jeredyang'
 
-s = 'bdjgbobobobjoboboobobpphodo'
+#s = 'bdjgbobobobjoboboobobpphodo'
 
 # convert s to be all lower case and setup counter
 s = s.lower()
