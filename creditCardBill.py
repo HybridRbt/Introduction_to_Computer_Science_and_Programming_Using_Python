@@ -252,8 +252,12 @@ def find_lowest_payment_bisec(initial_balance, annual_interest_rate):
     return monthly_lowest_payment
 
 
-#Test Case 1:
-balance = 320000
-annualInterestRate = 0.2
+# Test Case 1:
+# balance = 320000
+# annualInterestRate = 0.2
+
+# Test Case 2:
+# balance = 999999
+# annualInterestRate = 0.18
 
 print "Lowest Payment: " + str(round(find_lowest_payment_bisec(balance, annualInterestRate), 2))
