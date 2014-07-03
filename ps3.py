@@ -1,5 +1,12 @@
 __author__ = 'jeredyang'
 
+
+def f(x):
+    import math
+
+    return 10 * math.e ** (math.log(0.5) / 5.27 * x)
+
+
 def radiationExposure(start, stop, step):
     """
     Computes and returns the amount of radiation exposed
@@ -16,3 +23,25 @@ def radiationExposure(start, stop, step):
       between start and stop times.
     """
     # FILL IN YOUR CODE HERE...
+    total = 0
+    steps = []
+
+    while start < stop:
+        steps.append(start)
+        start += step
+
+    for step in steps:
+        total += f(step)
+
+    return total
+
+
+def test():
+    print radiationExposure(0, 5, 1)
+    print radiationExposure(5, 11, 1)
+    print radiationExposure(0, 11, 1)
+    print radiationExposure(40, 100, 1.5)
+
+# test()
+a = xfrange(0, 1, 0.1)
+print a
