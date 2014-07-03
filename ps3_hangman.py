@@ -123,7 +123,51 @@ def hangman(secretWord):
     Follows the other limitations detailed in the problem write-up.
     """
     # FILL IN YOUR CODE HERE...
+    # start the game, greeting the user
+    print "Welcome to the game, Hangman!"
 
+    # get length of the word
+    print "I am thinking of a word that is " + str(len(secretWord)) + " letters long."
+
+    # set the guesses
+    guesses_left = 8
+    lettersGuessed = []
+    availableLetters = getAvailableLetters(lettersGuessed)
+    won = False
+
+    while guesses_left > 0:
+        # begin the game
+        print "-------------"
+        print "You have " + str(guesses_left) + " guesses left."
+        print "Available letters: " + availableLetters
+
+        # get user input
+        current_letter = raw_input("Please guess a letter: ").lower()
+
+        # check if current guess is available
+        if current_letter not in availableLetters:
+            print "Oops! You've already guessed that letter: " + getGuessedWord(secretWord, lettersGuessed)
+        elif current_letter in secretWord:
+            lettersGuessed.append(current_letter)
+            print "Good guess: " + getGuessedWord(secretWord, lettersGuessed)
+            availableLetters = availableLetters.replace(current_letter, "")
+        else:
+            lettersGuessed.append(current_letter)
+            print "Oops! That letter is not in my word: " + getGuessedWord(secretWord, lettersGuessed)
+            availableLetters = availableLetters.replace(current_letter, "")
+            guesses_left -= 1
+
+        # won the game
+        if isWordGuessed(secretWord, lettersGuessed):
+            print "------------"
+            print "Congratulations, you won!"
+            won = True
+            break
+
+    # failed after 8 tries
+    if not won:
+        print "------------"
+        print "Sorry, you ran out of guesses. The word was " + secretWord
 
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
