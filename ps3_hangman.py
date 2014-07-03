@@ -92,6 +92,14 @@ def getAvailableLetters(lettersGuessed):
       yet been guessed.
     """
     # FILL IN YOUR CODE HERE...
+    all_available_letters = string.ascii_lowercase
+    result = ""
+
+    for each_c in all_available_letters:
+        if each_c not in lettersGuessed:
+            result += each_c
+
+    return result
 
 
 def hangman(secretWord):
