@@ -1,13 +1,13 @@
-#print 'I like 6.00.1x!'
+# print 'I like 6.00.1x!'
 
-#temp = '32'
-#if temp > 85:
+# temp = '32'
+# if temp > 85:
 #   print "Hot"
 #elif temp > 62:
 #   print "Comfortable" 
 #else:
 #   print "Cold" 
-   
+
 #temp = 120
 #if temp > 85:
 #   print "Hot"
@@ -210,11 +210,101 @@
 #stx = "hello there bob how are you"
 #wds = stx.split()
 #print wds[2]
+#
+# x = 12
+# def g(x):
+#     x = x + 1
+#     def h(y):
+#         return x + y
+#     return h(6)
+# g(x)
 
-x = 12
-def g(x):
-    x = x + 1
-    def h(y):
-        return x + y
-    return h(6)
-g(x)
+
+# def iterPower(base, exp):
+#     if exp == 0:
+#         return float(1)
+#
+#     result = 1
+#     while exp > 0:
+#         result *= base
+#         exp -= 1
+#
+#     return float(result)
+#
+#
+# print iterPower(-3.33, 8)
+
+# def recurPowerNew(base, exp):
+#     if exp == 0:
+#         return float(1)
+#
+#     if exp > 0:
+#         if exp % 2 == 0:
+#             return recurPowerNew(base * base, exp / 2)
+#         else:
+#             return base * recurPowerNew(base, exp - 1)
+#
+#
+# print recurPowerNew(9.41, 10)
+#
+# x = (1, 2, (3, 'John', 4), 'Hi')
+# print x[0:-1]
+# print x[0:1]
+# print range(3)
+# print sum(range(len([1, 2, [3, 'John', 4], 'Hi'])))
+
+# aList = range(1, 6)
+# bList = aList
+# aList[2] = 'hello'
+# print aList == bList
+# print aList is bList
+
+# cList = range(6, 1, -1)
+# dList = []
+# for num in cList:
+#     dList.append(num)
+# print cList == dList
+# print cList is dList
+#
+# listA = [1, 4, 3, 0]
+# listB = ['x', 'z', 't', 'q']
+#
+# print listA.sort()
+# print listA
+# listA.remove(3)
+# print listA
+#
+# listB.sort()
+# listB.pop()
+# listB.count('a')
+# # listB.remove('a')
+# listA.extend([4, 1, 6, 3, 4])
+# listA.count(4)
+# listA.index(1)
+# listA.pop(4)
+# # listA.reverse()
+# # print listA
+#
+# animals = {'a': 'aardvark', 'b': 'baboon', 'c': 'coati'}
+# animals['d'] = 'donkey'
+#
+# print animals
+
+
+def biggest(aDict):
+    """
+    aDict: A dictionary, where all the values are lists.
+
+    returns: The key with the largest number of values associated with it
+    """
+    # Your Code Here
+    current_largest = None
+    current_key = None
+    for each_key in aDict:
+        if current_largest is None or current_largest < len(aDict[each_key]):
+            current_largest = len(aDict[each_key])
+            current_key = each_key
+
+    return current_key
+
+print biggest({'a': [16], 'c': [6, 15, 17, 8, 10, 19, 15, 9], 'b': [6, 14, 5, 15, 6, 20]})
