@@ -57,7 +57,7 @@ def isWordGuessed(secretWord, lettersGuessed):
       False otherwise
     """
     # FILL IN  YOUR CODE HERE...
-    if len(secretWord) != len(lettersGuessed) or len(secretWord) == 0:
+    if len(secretWord) == 0:
         return False
 
     for each_c in secretWord:
@@ -75,6 +75,14 @@ def getGuessedWord(secretWord, lettersGuessed):
       what letters in secretWord have been guessed so far.
     """
     # FILL IN YOUR CODE HERE...
+    result = ""
+    for each_c in secretWord:
+        if each_c in lettersGuessed:
+            result += each_c
+        else:
+            result += "_ "
+
+    return result
 
 
 def getAvailableLetters(lettersGuessed):
@@ -115,3 +123,4 @@ def hangman(secretWord):
 
 # secretWord = chooseWord(wordlist).lower()
 # hangman(secretWord)
+
