@@ -85,7 +85,7 @@ def yearly_credit_history(remain_balance, annual_interestrate, monthly_paymentra
 # monthlyPaymentRate = 0.04
 #
 # yearly_credit_history(balance, annualInterestRate, monthlyPaymentRate)
-
+#
 # Test Case 2:
 # balance = 4842
 # annualInterestRate = 0.2
@@ -168,7 +168,7 @@ def find_lowest_payment(initial_balance, annual_interest_rate):
 # balance = 3926
 # annualInterestRate = 0.2
 
-#print "Lowest Payment: " + str(find_lowest_payment(balance, annualInterestRate))
+# print "Lowest Payment: " + str(find_lowest_payment(balance, annualInterestRate))
 
 """
 PROBLEM 3: USING BISECTION SEARCH TO MAKE THE PROGRAM FASTER (25 points possible)
@@ -260,4 +260,4 @@ def find_lowest_payment_bisec(initial_balance, annual_interest_rate):
 # balance = 999999
 # annualInterestRate = 0.18
 
-print "Lowest Payment: " + str(round(find_lowest_payment_bisec(balance, annualInterestRate), 2))
+# print "Lowest Payment: " + str(round(find_lowest_payment_bisec(balance, annualInterestRate), 2))
